@@ -1,84 +1,223 @@
 const fs = require ('fs');
+
+const generateMarkdown = require ('./utils/generateMarkdown.js')
 const inquirer = require('inquirer');
 console.log(inquirer);
-inquirer
-    .prompt([
-      /* Pass your questions in here */
+
+const promptUser = () => {
+  
+return inquirer.prompt([
       {
         type: 'input',
-        name: 'username',
-        message: 'What is your git hub username?'
+        name: 'name',
+        message: 'What is your name?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your name!");
+            return false;
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'github',
+        message: 'What is your GitHub Username?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your Github Username!");
+          }
+        }
       },
       {
         type: 'input',
         name: 'email',
-        message: 'What Is your Email address?'
+        message: 'What Is your Email address?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your email address!");
+          }
+        }
       },
       {
         type: 'input',
-        name: 'projectName',
-        message: 'What is the name of your project?'
+        name: 'title',
+        message: 'What is your project Title?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your project Title!");
+          }
+        }
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Please write a short description of your project.'
+        message: 'Please write a short description of your project.',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your project description!");
+          }
+        }
       },
       {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: 'What kind of license should be run to install your project dependencies?'
+        message: 'Please select a license.',
+        choices: [
+        "MIT",
+        "ISC",
+        "Apache-2.0",
+        "MPL-2.0"
+        ]
       },
       {
         type: 'input',
-        name: 'install',
-        message: 'What command should be run to install dependencies?'
+        name: 'installation',
+        message: 'What command should be run to install dependencies?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please provide installation instructions!");
+          }
+        }
       },
       {
         type: 'input',
-        name: 'runTest',
+        name: 'tests',
         message: 'What command should be run to run test?'
+        
       },
       {
         type: 'input',
         name: 'using',
-        message: 'What does the user need to know about using the repo?'
+        message: 'What does the user need to know about using the repo?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("please enter use!");
+          }
+        }
+      },
+      {
+        type: 'input',
+        name: 'credit',
+        message: 'Please list all credits here.',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("please enter use!");
+          }
+        }
       },
       {
         type: 'input',
         name: 'contributing',
-        message: 'What does the user need to know about contributing to the repo?'
-      },
+        message: 'What are the rules for contributing to this project?',
+        validate: nameInput => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Enter contribution rules!");
+          }
+        }
+      }
     
     ])
-    
-    .then(answers => {
-    // Use user feedback for... whatever!!
-    console.log(answers);
+    .then(userResponse => {
 
-    })
-    .catch(error => {
-    if(error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else when wrong
-    }
-  });
-
-// array of questions for user
-
-const questions = [
-
-];
-
-// function to write README file
-function writeToFile(fileName, data) {
-}
-
-// function to initialize program
-function init() {
-
-}
-
-// function call to initialize program
-init();
+      const readMe = generateMarkdown(userResponse);
+  
+        return writeToFile(readMe)
+  
+      })
+  
+      .then(response => {
+  
+        console.log(response);
+  
+      }) 
+  
+      .catch(err => {
+  
+        console.log(err);
+  
+      });
+  
+  };
+  
+  
+  
+  // function to write README file
+  
+  function writeToFile(userResponse) {
+  
+    // create a path to create the readme file
+  
+    const fileName = "./dist/readme.md";
+  
+  
+  
+    // Write the file
+  
+    return new Promise((resolve, reject) => {
+  
+      fs.writeFile(fileName, userResponse, err => {
+  
+        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method 
+  
+        if (err) {
+  
+          reject(err);
+  
+          return;
+  
+        }
+  
+        //if everything went well, resolve the Promise and send the successful data to the `.then()` method
+  
+        resolve({
+  
+          ok: true,
+  
+          message: 'File Created!'
+  
+        });
+  
+      });
+  
+    });
+  
+  
+  
+  }
+  
+  
+  
+  // function to initialize program
+  
+  function init() {
+  
+    // store all the user's answers in a variable
+  
+    const userResponse = promptUser();
+  
+  }
+  
+  
+  
+  // function call to initialize program
+  
+  init();
+  
