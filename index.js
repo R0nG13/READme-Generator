@@ -160,64 +160,37 @@ return inquirer.prompt([
   
   
   // function to write README file
-  
   function writeToFile(userResponse) {
   
     // create a path to create the readme file
-  
     const fileName = "./dist/readme.md";
   
   
   
     // Write the file
-  
-    return new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
   
       fs.writeFile(fileName, userResponse, err => {
   
         // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method 
   
         if (err) {
-  
           reject(err);
-  
           return;
-  
-        }
-  
+          }
         //if everything went well, resolve the Promise and send the successful data to the `.then()` method
-  
         resolve({
-  
           ok: true,
-  
           message: 'File Created!'
-  
         });
-  
       });
-  
     });
-  
-  
-  
   }
-  
-  
-  
+
   // function to initialize program
-  
   function init() {
-  
-    // store all the user's answers in a variable
-  
-    const userResponse = promptUser();
-  
+  // store all the user's answers in a variable
+  const userResponse = promptUser();
   }
-  
-  
-  
   // function call to initialize program
-  
   init();
-  
