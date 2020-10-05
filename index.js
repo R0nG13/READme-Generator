@@ -2,7 +2,7 @@ const fs = require ('fs');
 
 const generateMarkdown = require ('./utils/generateMarkdown.js')
 const inquirer = require('inquirer');
-console.log(inquirer);
+// console.log(inquirer);
 
 const promptUser = () => {
   
