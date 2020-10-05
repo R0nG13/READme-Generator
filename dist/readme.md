@@ -1,6 +1,6 @@
 
 
-# Read me Generator
+# Cool Readme Generator
 
     
 ## Description:
@@ -8,7 +8,7 @@
   
 ![License](https://img.shields.io/badge/License-MIT-blue.svg "License Badge")
   
-generate read me
+Generate a styled readme markdown file
 
   
 # Table of Contents
@@ -24,7 +24,7 @@ generate read me
 ## Installation:
 
 
-npm install
+npm i
 
 ## Tests:
 
@@ -35,7 +35,7 @@ npm test
 ## Usage:
 
 
-it works
+It Works!!
 
 
 ## Credits:
@@ -59,7 +59,7 @@ For more information about licenses, please visit:
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-follow contributer covenant
+please follow the covenents and please contribute
 
 
 ## Questions:
