@@ -1,5 +1,6 @@
 
-# asdhbhd
+
+# Read me Generator
 
     
 ## Description:
@@ -7,7 +8,7 @@
   
 ![License](https://img.shields.io/badge/License-MIT-blue.svg "License Badge")
   
-bashuibashuo
+generate read me
 
   
 # Table of Contents
@@ -23,24 +24,24 @@ bashuibashuo
 ## Installation:
 
 
-ncueuf
+npm install
 
 ## Tests:
 
 
-ndhasukikdf
+npm test
 
 
 ## Usage:
 
 
-nbchaskdd
+it works
 
 
 ## Credits:
 
 
-nchsdakhbc
+Ron Gould
 
 
 ## License:
@@ -58,7 +59,7 @@ For more information about licenses, please visit:
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
-bchauidf
+follow contributer covenant
 
 
 ## Questions:
@@ -66,11 +67,11 @@ bchauidf
   
 Github profile:
   
-- [Github Profile](https://github.com/bdsahkl)
+- [Github Profile](https://github.com/R0ng13)
   
 Email:
   
-- [Email](nauhud)
+- [Email](Ron.Gould@gmail.com)
 
   
   

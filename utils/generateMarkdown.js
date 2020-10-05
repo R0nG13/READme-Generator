@@ -1,9 +1,10 @@
 // function to generate markdown for README
 function generateMarkdown(userResponse) {
 
-  console.log(userResponse);
+  // console.log(userResponse);
 
   return `
+
 # ${userResponse.title}\n
     
 ## Description:\n
